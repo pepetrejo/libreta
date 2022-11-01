@@ -41,11 +41,13 @@ fun Body(modifier: Modifier, maquinaViewModel: MaquinaViewModel) {
     val totalInfinity: String by maquinaViewModel.totalInfinity.observeAsState(initial = "")
 
 
+
     Column(modifier = modifier) {
 
 
         MyText(texto = nombre)
         Spacer(modifier = Modifier.padding(8.dp))
+
 
         Numero(num = bill50, backgroundColor = Color.LightGray) {
             maquinaViewModel.onDatosChanged(bill50 = it, bill20 = bill20, bill10 = bill10, total = totalInfinity)
@@ -71,7 +73,9 @@ fun Body(modifier: Modifier, maquinaViewModel: MaquinaViewModel) {
         MyText(texto = "Total 10 es: $cantidad10")
 
         Spacer(modifier = Modifier.padding(8.dp))
-        MyText(texto = "Total ${infinity.name}: $totalInfinity")
+        MyText(texto = "Total $nombre: $totalInfinity")
+
+
         /*
         Numero(num = ticket, backgroundColor = Color.Magenta) {
             clasesViewModel.onDatosChanged(num1 = it,  num2= recuperado)
@@ -132,4 +136,22 @@ fun MyRow(name: String, onTextChanged: (String) -> Unit) {
 
         Numero(backgroundColor = Color.LightGray, num = "2222") {}
     }
+}
+
+@Composable
+fun Nombre(backgroundColor: Color, nombre: String, onTextChanged: (String) -> Unit) {
+    TextField(
+        value = nombre,
+        onValueChange = { onTextChanged(it) },
+        modifier = Modifier.fillMaxWidth(),
+        placeholder = { Text(text = "Numero 1") },
+        maxLines = 1,
+        singleLine = true,
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = Color(0xFFFFFFFF),
+            backgroundColor = backgroundColor,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent
+        )
+    )
 }

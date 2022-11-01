@@ -5,7 +5,7 @@ import com.pepetrejo.libreta.model.Maquina
 
 fun getDatos(): List<Maquina> {
     return listOf(
-        Maquina("Infinity", "10000", "10000"),
+        Maquina("Link", "10000", "10000"),
         Maquina("B-4", "10000", "10000"),
         Maquina("Power", "10000", "10000"),
         //Maquina("Impera", "10000", "10000"),
@@ -13,7 +13,7 @@ fun getDatos(): List<Maquina> {
     )
 }
 
-var infinity: Maquina = Maquina("Infinity", "10", "0")
+
 
 var listaMaquinas = getDatos()
 

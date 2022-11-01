@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pepetrejo.libreta.modeloMaquina.infinity
+import com.pepetrejo.libreta.modeloMaquina.sumando
+import com.pepetrejo.libreta.pepe
 
 class MaquinaViewModel : ViewModel() {
 
@@ -15,23 +17,24 @@ class MaquinaViewModel : ViewModel() {
     private val _bill50 = MutableLiveData<String>(infinity.bill50)
     val bill50: LiveData<String> = _bill50
 
-    private val _cantidad50 = MutableLiveData<String>(infinity.cantidad50)
+    private val _cantidad50 = MutableLiveData<String>(infinity.cantidad50())
     val cantidad50: LiveData<String> = _cantidad50
 
     private val _bill20 = MutableLiveData<String>(infinity.bill20)
     val bill20: LiveData<String> = _bill20
 
-    private val _cantidad20 = MutableLiveData<String>(infinity.cantidad20)
+    private val _cantidad20 = MutableLiveData<String>(infinity.cantidad20())
     val cantidad20: LiveData<String> = _cantidad20
 
     private val _bill10 = MutableLiveData<String>(infinity.bill10)
     val bill10: LiveData<String> = _bill10
 
-    private val _cantidad10 = MutableLiveData<String>(infinity.cantidad10)
+    private val _cantidad10 = MutableLiveData<String>(infinity.cantidad10())
     val cantidad10: LiveData<String> = _cantidad10
 
-    private val _totalInfinity = MutableLiveData<String>(infinity.total)
+    private val _totalInfinity = MutableLiveData<String>(infinity.total())
     val totalInfinity: LiveData<String> = _totalInfinity
+
 
 
     fun onDatosChanged(bill50: String, bill20: String, bill10:String, total:String) {
@@ -39,6 +42,17 @@ class MaquinaViewModel : ViewModel() {
         _bill20.value = bill20
         _bill10.value = bill10
         _totalInfinity.value = total
+        infinity.bill50 = bill50
+        infinity.bill20 = bill20
+        infinity.bill10 = bill10
+        _totalInfinity.value = infinity.total()
+        _cantidad50.value = infinity.cantidad50()
+        _cantidad20.value = infinity.cantidad20()
+        _cantidad10.value = infinity.cantidad10() // Esto funciona
+
+
+
+        Log.i("pepe", "${_bill50.value}, ${infinity.bill50}, ${_bill20.value}, ${infinity.bill20}, ${infinity.cantidad50()}, ${infinity.total()}")
 
     }
 

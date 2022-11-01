@@ -3,7 +3,6 @@ package com.pepetrejo.libreta.Clases
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.pepetrejo.libreta.infinity
 import com.pepetrejo.libreta.listaMaquinas
 
 class ClasesViewModel : ViewModel() {
