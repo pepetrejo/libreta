@@ -64,7 +64,7 @@ fun Numero(backgroundColor: Color, num: String, onTextChanged: (String) -> Unit)
         value = num,
         onValueChange = { onTextChanged(it) },
         modifier = Modifier.fillMaxWidth(),
-        placeholder = { Text(text = "Numero 1") },
+        placeholder = { Text(text = "CantidadIn 1") },
         maxLines = 1,
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),

@@ -42,4 +42,3 @@ fun total(funcion1: Int, funcion2: String): String {
     return funcion1.toString() + funcion2
 }
 
-var pepe = total(primera(2, 3), segunda("ole"))
