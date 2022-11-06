@@ -2,8 +2,10 @@ package com.pepetrejo.libreta.Maquina
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -57,180 +59,261 @@ fun Body(modifier: Modifier, maquinaViewModel: MaquinaViewModel) {
 
 
 
-    Column(modifier = modifier) {
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
 
-        MyText(texto = nombre)
-        Spacer(modifier = Modifier.padding(16.dp))
+        Text(
+            text = nombre,
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            color = Color.Blue,
+            fontWeight = FontWeight.ExtraBold
+        )
+        Spacer(modifier = Modifier.padding(4.dp))
 
-        MyCard(modifier = Modifier.padding(2.dp).height(100.dp).fillMaxWidth(1f), num = bill50, tipo = "Bill50€", total = cantidad50 , onValueChanged = {maquinaViewModel.onDatosChanged(
-            bill50 = it,
-            bill20 = bill20,
-            bill10 = bill10,
-            bill5 = bill5,
-            mon2 = mon2,
-            mon1 = mon1,
-            mon050 = mon050,
-            mon020 = mon020,
-            mon010 = mon010,
-            total = totalInfinity)}
+        MyCard(
+            modifier = Modifier
+
+                .fillMaxWidth(1f),
+            num = bill50,
+            tipo = "Bill50€",
+            total = cantidad50,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = it,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
         )
 
-        MyCard(modifier = Modifier.padding(2.dp).height(100.dp).fillMaxWidth(1f), num = bill20, tipo = "Bill20€", total = cantidad20 , onValueChanged = {maquinaViewModel.onDatosChanged(
-            bill50 = bill50,
-            bill20 = it,
-            bill10 = bill10,
-            bill5 = bill5,
-            mon2 = mon2,
-            mon1 = mon1,
-            mon050 = mon050,
-            mon020 = mon020,
-            mon010 = mon010,
-            total = totalInfinity)}
+        MyCard(
+            modifier = Modifier
+                .fillMaxWidth(1f),
+            num = bill20,
+            tipo = "Bill20€",
+            total = cantidad20,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = it,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
         )
 
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = bill10,
+            tipo = "Bill10€",
+            total = cantidad10,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = it,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
 
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = bill10, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = it,
-                bill5 = bill5,
-                mon2 = mon2,
-                mon1 = mon1,
-                mon050 = mon050,
-                mon020 = mon020,
-                mon010 = mon010,
-                total = totalInfinity
-            )
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = bill5,
+            tipo = "Bill5€",
+            total = cantidad5,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = it,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = mon2,
+            tipo = "Mon2€",
+            total = cantidad2,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = it,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = mon1,
+            tipo = "Mon1€",
+            total = cantidad1,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = it,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = mon050,
+            tipo = "Mon0,50€",
+            total = cantidad050,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = it,
+                    mon020 = mon020,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = mon020,
+            tipo = "Mon0,20€",
+            total = cantidad020,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = it,
+                    mon010 = mon010,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        MyCard(
+            modifier = Modifier
+                .padding(2.dp)
+                .fillMaxWidth(1f),
+            num = mon010,
+            tipo = "Mon0,10€",
+            total = cantidad010,
+            onValueChanged = {
+                maquinaViewModel.onDatosChanged(
+                    bill50 = bill50,
+                    bill20 = bill20,
+                    bill10 = bill10,
+                    bill5 = bill5,
+                    mon2 = mon2,
+                    mon1 = mon1,
+                    mon050 = mon050,
+                    mon020 = mon020,
+                    mon010 = it,
+                    total = totalInfinity
+                )
+            }
+        )
+
+        Card(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(4.dp),
+            elevation = 8.dp,
+            shape = MaterialTheme.shapes.small,
+            backgroundColor = Color.Cyan,
+            contentColor = Color.Black,
+            border = BorderStroke(1.dp, Color.DarkGray)
+        ) {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                Text(
+                    text = "Total",
+                    modifier = Modifier
+                        .fillMaxWidth(0.3f),
+                    textAlign = TextAlign.Start,
+                    fontWeight = FontWeight.ExtraBold
+                )
+
+
+                Text(
+                    text = totalInfinity,
+                    modifier = Modifier
+                        .fillMaxWidth(1f),
+                    textAlign = TextAlign.End,
+                    fontWeight = FontWeight.ExtraBold
+                )
+            }
+
         }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = bill5, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = it,
-                mon2 = mon2,
-                mon1 = mon1,
-                mon050 = mon050,
-                mon020 = mon020,
-                mon010 = mon010,
-                total = totalInfinity
-            )
-        }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = mon2, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = bill5,
-                mon2 = it,
-                mon1 = mon1,
-                mon050 = mon050,
-                mon020 = mon020,
-                mon010 = mon010,
-                total = totalInfinity
-            )
-        }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = mon1, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = bill5,
-                mon2 = mon2,
-                mon1 = it,
-                mon050 = mon050,
-                mon020 = mon020,
-                mon010 = mon010,
-                total = totalInfinity
-            )
-        }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = mon050, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = bill5,
-                mon2 = mon010,
-                mon1 = mon1,
-                mon050 = it,
-                mon020 = mon020,
-                mon010 = mon010,
-                total = totalInfinity
-            )
-        }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = mon020, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = bill5,
-                mon2 = mon2,
-                mon1 = mon1,
-                mon050 = mon050,
-                mon020 = it,
-                mon010 = mon010,
-                total = totalInfinity
-            )
-        }
-
-        Spacer(modifier = Modifier.padding(2.dp))
-        CantidadIn(num = mon010, backgroundColor = Color.LightGray) {
-            maquinaViewModel.onDatosChanged(
-                bill50 = bill50,
-                bill20 = bill20,
-                bill10 = bill10,
-                bill5 = bill5,
-                mon2 = mon2,
-                mon1 = mon1,
-                mon050 = mon050,
-                mon020 = mon020,
-                mon010 = it,
-                total = totalInfinity
-            )
-        }
-
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 50 es: $cantidad50")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 20 es: $cantidad20")
-
-       /* Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 10 es: $cantidad10")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 5 es: $cantidad5")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 2 es: $cantidad2")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 1 es: $cantidad1")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 0,50 es: $cantidad050")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 0,20 es: $cantidad020")
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total 0,10 es: $cantidad010")*/
-
-        Spacer(modifier = Modifier.padding(1.dp))
-        MyText(texto = "Total $nombre: $totalInfinity")
 
 
     }
@@ -238,21 +321,37 @@ fun Body(modifier: Modifier, maquinaViewModel: MaquinaViewModel) {
 
 @OptIn(ExperimentalComposeUiApi::class) //Esto es para keyboardController
 @Composable
-fun CantidadIn(modifier: Modifier = Modifier.padding(1.dp), backgroundColor: Color, num: String, onTextChanged: (String) -> Unit) {
+fun CantidadIn(
+    modifier: Modifier = Modifier.padding(1.dp),
+    backgroundColor: Color,
+    num: String,
+    onTextChanged: (String) -> Unit
+) {
     val maxChar = 5
-    var keyboardController = LocalSoftwareKeyboardController.current // En esta variable se indica ocultar teclado
+    var keyboardController =
+        LocalSoftwareKeyboardController.current // En esta variable se indica ocultar teclado
     TextField(
         value = num,
         textStyle = LocalTextStyle.current.copy(textAlign = TextAlign.End),
-        onValueChange = { if(it.length < maxChar){ onTextChanged(it)} },
-        modifier = modifier,
-        placeholder = { Text(text = "0", textAlign = TextAlign.Center) },
+        onValueChange = {
+            if (it.length < maxChar) {
+                onTextChanged(it)
+            }
+        },
+        modifier = modifier.height(50.dp),
+        placeholder = {
+            Text(
+                text = "0",
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.End
+            )
+        },
         maxLines = 1,
         singleLine = true,
-        keyboardActions = KeyboardActions(onDone = {keyboardController?.hide()}),
+        keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() }),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword),
         colors = TextFieldDefaults.textFieldColors(
-            textColor = Color(0xFFFFFFFF),
+            textColor = Color.Black,
             backgroundColor = backgroundColor,
             focusedIndicatorColor = Color.Blue,
             unfocusedIndicatorColor = Color.Transparent
@@ -261,17 +360,23 @@ fun CantidadIn(modifier: Modifier = Modifier.padding(1.dp), backgroundColor: Col
 }
 
 @Composable
-fun MyText(texto: String) {
+fun MyText(texto: String, center: TextAlign) {
     Text(text = texto, fontWeight = FontWeight.ExtraBold, color = Color.Blue)
 }
 
 
 @Composable
-fun MyCard( num: String, modifier: Modifier, tipo:String, total:String,onValueChanged: (String) -> Unit) {
+fun MyCard(
+    num: String,
+    modifier: Modifier,
+    tipo: String,
+    total: String,
+    onValueChanged: (String) -> Unit
+) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(1.dp),
+            .padding(2.dp),
         elevation = 8.dp,
         shape = MaterialTheme.shapes.small,
         backgroundColor = Color.Cyan,
@@ -290,7 +395,12 @@ fun MyCard( num: String, modifier: Modifier, tipo:String, total:String,onValueCh
                     .fillMaxWidth(0.3f), textAlign = TextAlign.Start
             )
 
-            CantidadIn(backgroundColor = Color.LightGray, num = num, onTextChanged = onValueChanged, modifier = Modifier.fillMaxWidth(0.5f))
+            CantidadIn(
+                backgroundColor = Color.LightGray,
+                num = num,
+                onTextChanged = onValueChanged,
+                modifier = Modifier.fillMaxWidth(0.5f)
+            )
 
             Text(
                 text = total, modifier = Modifier

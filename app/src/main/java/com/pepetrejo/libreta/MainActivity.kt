@@ -23,13 +23,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Column() {
-                        //SumaScreen(NumViewModel())
 
                         MaquinaScreen(MaquinaViewModel())
-
-                    }
-
 
                 }
             }
@@ -46,7 +41,7 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     LibretaTheme {
-        Greeting("Android")
+        MaquinaScreen(MaquinaViewModel())
     }
 }
 
